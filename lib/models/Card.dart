@@ -193,189 +193,194 @@ class CardWidget_Sub extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: BoxConstraints(
-        minWidth: double.infinity,
-        maxWidth: double.infinity,
-        maxHeight: SizeConfig.HOME_SCREEN_MAIN_SUBCARDWIDTH,
-        minHeight: SizeConfig.HOME_SCREEN_MAIN_SUBCARDWIDTH,
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        vertical: 5
       ),
-      child: Card(
-        shape: RoundedRectangleBorder(
-            //borderRadius: BorderRadius.circular(15)
-          borderRadius: BorderRadius.only(
-            topRight: Radius.circular(10),
-            topLeft: Radius.circular(0),
-            bottomLeft: Radius.circular(10),
-            bottomRight: Radius.circular(0),
-          )
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          minWidth: double.infinity,
+          maxWidth: double.infinity,
+          maxHeight: SizeConfig.HOME_SCREEN_MAIN_SUBCARDWIDTH,
+          minHeight: SizeConfig.HOME_SCREEN_MAIN_SUBCARDWIDTH,
         ),
-        elevation: 3,
-        color: LightTheme.FONT_COLOR_WHITE.withOpacity(0.6),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-              horizontal: 15
+        child: Card(
+          shape: RoundedRectangleBorder(
+              //borderRadius: BorderRadius.circular(15)
+            borderRadius: BorderRadius.only(
+              topRight: Radius.circular(10),
+              topLeft: Radius.circular(0),
+              bottomLeft: Radius.circular(10),
+              bottomRight: Radius.circular(0),
+            )
           ),
-          child: Column(
-            children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 5
-                    ),
-                    child: Text(
-                      "Date: "+this.date,
-                      style: TextStyle(
-                          color: LightTheme.FONT_COLOR,
-                          fontFamily: 'Poetsen_one',
-                          fontSize: SizeConfig.HOME_SCREEN_CARDTITLESIZE,
-                          fontStyle: FontStyle.italic
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 5
-                    ),
-                    child: Text(
-                      "State: "+ this.state.toString(),
-                      style: TextStyle(
-                          color: LightTheme.FONT_COLOR,
-                          fontFamily: 'Poetsen_one',
-                          fontSize: SizeConfig.HOME_SCREEN_CARDTITLESIZE,
-                          fontStyle: FontStyle.italic
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 50,
-                ),
-                child: Row(
+          elevation: 3,
+          color: LightTheme.FONT_COLOR_WHITE.withOpacity(0.6),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+                horizontal: 15
+            ),
+            child: Column(
+              children: <Widget>[
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Container(
-                      width: SizeConfig.HOME_SCREEN_MAIN_SUBBALL_SIZE,
-                      height: SizeConfig.HOME_SCREEN_MAIN_SUBBALL_SIZE,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: LightTheme.BALL_1_COLOR,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 5
                       ),
-                      child: Center(
-                        child: Text(
-                          this.first_number.toString(),
-                          style: TextStyle(
-                              color: LightTheme.FONT_COLOR_WHITE,
-                              fontFamily: 'Poetsen_one',
-                              fontSize: SizeConfig.HOME_SCREEN_MAIN_SUBNUMBER_BALL_SIZE,
-                              fontStyle: FontStyle.italic
-                          ),
+                      child: Text(
+                        "Date: "+this.date,
+                        style: TextStyle(
+                            color: LightTheme.FONT_COLOR,
+                            fontFamily: 'Poetsen_one',
+                            fontSize: SizeConfig.HOME_SCREEN_CARDTITLESIZE,
+                            fontStyle: FontStyle.italic
                         ),
                       ),
                     ),
-                    Container(
-                      width: SizeConfig.HOME_SCREEN_MAIN_SUBBALL_SIZE,
-                      height: SizeConfig.HOME_SCREEN_MAIN_SUBBALL_SIZE,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: LightTheme.BALL_2_COLOR,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 5
                       ),
-                      child: Center(
-                        child: Text(
-                          this.second_number.toString(),
-                          style: TextStyle(
-                              color: LightTheme.FONT_COLOR_WHITE,
-                              fontFamily: 'Poetsen_one',
-                              fontSize: SizeConfig.HOME_SCREEN_MAIN_SUBNUMBER_BALL_SIZE,
-                              fontStyle: FontStyle.italic
-                          ),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: SizeConfig.HOME_SCREEN_MAIN_SUBBALL_SIZE,
-                      height: SizeConfig.HOME_SCREEN_MAIN_SUBBALL_SIZE,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: LightTheme.BALL_3_COLOR,
-                      ),
-                      child: Center(
-                        child: Text(
-                          this.third_number.toString(),
-                          style: TextStyle(
-                              color: LightTheme.FONT_COLOR_WHITE,
-                              fontFamily: 'Poetsen_one',
-                              fontSize: SizeConfig.HOME_SCREEN_MAIN_SUBNUMBER_BALL_SIZE,
-                              fontStyle: FontStyle.italic
-                          ),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: SizeConfig.HOME_SCREEN_MAIN_SUBBALL_SIZE,
-                      height: SizeConfig.HOME_SCREEN_MAIN_SUBBALL_SIZE,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: LightTheme.BALL_4_COLOR,
-                      ),
-                      child: Center(
-                        child: Text(
-                          this.four_number.toString(),
-                          style: TextStyle(
-                              color: LightTheme.FONT_COLOR_WHITE,
-                              fontFamily: 'Poetsen_one',
-                              fontSize: SizeConfig.HOME_SCREEN_MAIN_SUBNUMBER_BALL_SIZE,
-                              fontStyle: FontStyle.italic
-                          ),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: SizeConfig.HOME_SCREEN_MAIN_SUBBALL_SIZE,
-                      height: SizeConfig.HOME_SCREEN_MAIN_SUBBALL_SIZE,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: LightTheme.BALL_5_COLOR,
-                      ),
-                      child: Center(
-                        child: Text(
-                          this.five_number.toString(),
-                          style: TextStyle(
-                              color: LightTheme.FONT_COLOR_WHITE,
-                              fontFamily: 'Poetsen_one',
-                              fontSize: SizeConfig.HOME_SCREEN_MAIN_SUBNUMBER_BALL_SIZE,
-                              fontStyle: FontStyle.italic
-                          ),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: SizeConfig.HOME_SCREEN_MAIN_SUBBALL_SIZE,
-                      height: SizeConfig.HOME_SCREEN_MAIN_SUBBALL_SIZE,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: LightTheme.BALL_6_COLOR,
-                      ),
-                      child: Center(
-                        child: Text(
-                          this.six_number.toString(),
-                          style: TextStyle(
-                              color: LightTheme.FONT_COLOR_WHITE,
-                              fontFamily: 'Poetsen_one',
-                              fontSize: SizeConfig.HOME_SCREEN_MAIN_SUBNUMBER_BALL_SIZE,
-                              fontStyle: FontStyle.italic
-                          ),
+                      child: Text(
+                        "State: "+ this.state.toString(),
+                        style: TextStyle(
+                            color: LightTheme.FONT_COLOR,
+                            fontFamily: 'Poetsen_one',
+                            fontSize: SizeConfig.HOME_SCREEN_CARDTITLESIZE,
+                            fontStyle: FontStyle.italic
                         ),
                       ),
                     ),
                   ],
                 ),
-              ),
-            ],
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 50,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Container(
+                        width: SizeConfig.HOME_SCREEN_MAIN_SUBBALL_SIZE,
+                        height: SizeConfig.HOME_SCREEN_MAIN_SUBBALL_SIZE,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: LightTheme.BALL_1_COLOR,
+                        ),
+                        child: Center(
+                          child: Text(
+                            this.first_number.toString(),
+                            style: TextStyle(
+                                color: LightTheme.FONT_COLOR_WHITE,
+                                fontFamily: 'Poetsen_one',
+                                fontSize: SizeConfig.HOME_SCREEN_MAIN_SUBNUMBER_BALL_SIZE,
+                                fontStyle: FontStyle.italic
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: SizeConfig.HOME_SCREEN_MAIN_SUBBALL_SIZE,
+                        height: SizeConfig.HOME_SCREEN_MAIN_SUBBALL_SIZE,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: LightTheme.BALL_2_COLOR,
+                        ),
+                        child: Center(
+                          child: Text(
+                            this.second_number.toString(),
+                            style: TextStyle(
+                                color: LightTheme.FONT_COLOR_WHITE,
+                                fontFamily: 'Poetsen_one',
+                                fontSize: SizeConfig.HOME_SCREEN_MAIN_SUBNUMBER_BALL_SIZE,
+                                fontStyle: FontStyle.italic
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: SizeConfig.HOME_SCREEN_MAIN_SUBBALL_SIZE,
+                        height: SizeConfig.HOME_SCREEN_MAIN_SUBBALL_SIZE,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: LightTheme.BALL_3_COLOR,
+                        ),
+                        child: Center(
+                          child: Text(
+                            this.third_number.toString(),
+                            style: TextStyle(
+                                color: LightTheme.FONT_COLOR_WHITE,
+                                fontFamily: 'Poetsen_one',
+                                fontSize: SizeConfig.HOME_SCREEN_MAIN_SUBNUMBER_BALL_SIZE,
+                                fontStyle: FontStyle.italic
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: SizeConfig.HOME_SCREEN_MAIN_SUBBALL_SIZE,
+                        height: SizeConfig.HOME_SCREEN_MAIN_SUBBALL_SIZE,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: LightTheme.BALL_4_COLOR,
+                        ),
+                        child: Center(
+                          child: Text(
+                            this.four_number.toString(),
+                            style: TextStyle(
+                                color: LightTheme.FONT_COLOR_WHITE,
+                                fontFamily: 'Poetsen_one',
+                                fontSize: SizeConfig.HOME_SCREEN_MAIN_SUBNUMBER_BALL_SIZE,
+                                fontStyle: FontStyle.italic
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: SizeConfig.HOME_SCREEN_MAIN_SUBBALL_SIZE,
+                        height: SizeConfig.HOME_SCREEN_MAIN_SUBBALL_SIZE,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: LightTheme.BALL_5_COLOR,
+                        ),
+                        child: Center(
+                          child: Text(
+                            this.five_number.toString(),
+                            style: TextStyle(
+                                color: LightTheme.FONT_COLOR_WHITE,
+                                fontFamily: 'Poetsen_one',
+                                fontSize: SizeConfig.HOME_SCREEN_MAIN_SUBNUMBER_BALL_SIZE,
+                                fontStyle: FontStyle.italic
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: SizeConfig.HOME_SCREEN_MAIN_SUBBALL_SIZE,
+                        height: SizeConfig.HOME_SCREEN_MAIN_SUBBALL_SIZE,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: LightTheme.BALL_6_COLOR,
+                        ),
+                        child: Center(
+                          child: Text(
+                            this.six_number.toString(),
+                            style: TextStyle(
+                                color: LightTheme.FONT_COLOR_WHITE,
+                                fontFamily: 'Poetsen_one',
+                                fontSize: SizeConfig.HOME_SCREEN_MAIN_SUBNUMBER_BALL_SIZE,
+                                fontStyle: FontStyle.italic
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
