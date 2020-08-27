@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_vietlott/controllers/size_config.dart';
 import 'package:flutter_vietlott/controllers/theme_config.dart';
 import 'package:flutter_vietlott/models/Card.dart';
+import 'package:flutter_vietlott/resource/data/FakeData.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -11,6 +12,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  FakeData fakeData = new FakeData();
   @override
   Widget build(BuildContext context) {
     SizeConfig SIZE = SizeConfig(context);
@@ -99,17 +101,26 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         Text(
-                          "Update: 20-12-2020",
+                          "Update: "+fakeData.listFakeData[0].date,
                           style: TextStyle(
                             color: LightTheme.FONT_COLOR_WHITE,
                             fontFamily: 'Poetsen_one',
-                            fontSize: SizeConfig.HOME_SCREEN_SUBTITLE - 5,
+                            fontSize: SizeConfig.HOME_SCREEN_SUBTITLE - 3,
                             fontStyle: FontStyle.italic
                           ),
                         ),
                       ],
                     ),
-                    CardWidget()
+                    CardWidget(
+                      first_number: fakeData.listFakeData[0].first_number,
+                      second_number: fakeData.listFakeData[0].second_number,
+                      third_number: fakeData.listFakeData[0].third_number,
+                      four_number: fakeData.listFakeData[0].four_number,
+                      five_number: fakeData.listFakeData[0].five_number,
+                      six_number: fakeData.listFakeData[0].six_number,
+                      date: fakeData.listFakeData[0].date,
+                      state: fakeData.listFakeData[0].state,
+                    )
                   ],
                 ),
               ),
@@ -160,8 +171,17 @@ class _HomeScreenState extends State<HomeScreen> {
                           maxWidth: double.infinity,
                         ),
                         child: ListView.builder(
-                          itemCount: 20,
-                          itemBuilder: (context, index)=> CardWidget_Sub(),
+                          itemCount: fakeData.listFakeData.length,
+                          itemBuilder: (context, index)=> CardWidget_Sub(
+                            first_number: fakeData.listFakeData[index].first_number,
+                            second_number: fakeData.listFakeData[index].second_number,
+                            third_number: fakeData.listFakeData[index].third_number,
+                            four_number: fakeData.listFakeData[index].four_number,
+                            five_number: fakeData.listFakeData[index].five_number,
+                            six_number: fakeData.listFakeData[index].six_number,
+                            date: fakeData.listFakeData[index].date,
+                            state: fakeData.listFakeData[index].state,
+                          ),
                         ),
                       )
                     ],

@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         "/home_screen": (context) => null,
         "/home_second_screen": (context) => null
       },*/
-      home: HomeScreen(),
+      home: WaitingScreen(),
     );
   }
 }
