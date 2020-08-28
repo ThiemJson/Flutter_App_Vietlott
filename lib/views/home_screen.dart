@@ -17,6 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     SizeConfig SIZE = SizeConfig(context);
     LightTheme THEME = LightTheme();
+    ScrollController _scrollController = new ScrollController();
     return Scaffold(
       floatingActionButton: FloatingActionButton.extended(
         onPressed: (){},
@@ -171,6 +172,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           maxWidth: double.infinity,
                         ),
                         child: ListView.builder(
+                          controller: _scrollController,
+                          //physics: ScrollPhysics(parent: FixedExtentScrollPhysics()),
                           itemCount: fakeData.listFakeData.length,
                           itemBuilder: (context, index)=> CardWidget_Sub(
                             first_number: fakeData.listFakeData[index].first_number,
