@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_vietlott/controllers/size_config.dart';
 import 'package:flutter_vietlott/controllers/theme_config.dart';
+import 'package:flutter_vietlott/models/AnimatiionFloatingActionbutton.dart';
 import 'package:flutter_vietlott/models/Card.dart';
 import 'package:flutter_vietlott/resource/data/FakeData.dart';
 
@@ -15,21 +16,25 @@ class _HomeScreenState extends State<HomeScreen> {
   FakeData fakeData = new FakeData();
   @override
   Widget build(BuildContext context) {
+    final Shader linearGradient = LinearGradient(
+      colors: <Color>[ LightTheme.PRIMARY_THEME.withOpacity(0.75),LightTheme.PRIMARY_THEME ],
+    ).createShader(Rect.fromLTWH(0.0, 0.0, 200.0, 70.0));
     SizeConfig SIZE = SizeConfig(context);
     LightTheme THEME = LightTheme();
     ScrollController _scrollController = new ScrollController();
     return Scaffold(
       floatingActionButton: FloatingActionButton.extended(
+        backgroundColor: LightTheme.SECOND_THEME.withOpacity(1),
         onPressed: (){},
-        backgroundColor: LightTheme.PRIMARY_THEME,
         elevation: 12,
-        icon: Icon(Icons.attach_money, color: LightTheme.FONT_COLOR_WHITE, size:  SizeConfig.HOME_SCREEN_OTHERLOTTERYTICKET + 6, ),
+        icon: Icon(Icons.art_track, color: LightTheme.FONT_COLOR, size:  SizeConfig.HOME_SCREEN_OTHERLOTTERYTICKET + 10, ),
         label: Text(
-          "Lottery Prediction",
+          "Menu",
           style: TextStyle(
-              color: LightTheme.FONT_COLOR_WHITE,
+              //color: LightTheme.FONT_COLOR_WHITE,
+            color: LightTheme.FONT_COLOR,
               fontFamily: 'Poetsen_one',
-              fontSize: SizeConfig.HOME_SCREEN_OTHERLOTTERYTICKET - 5,
+              fontSize: SizeConfig.HOME_SCREEN_OTHERLOTTERYTICKET - 2,
               //fontStyle: FontStyle.italic
           ),
         ),
@@ -50,9 +55,14 @@ class _HomeScreenState extends State<HomeScreen> {
               height: SizeConfig.HOME_SCREEN_MAINT_BLOCK,
               decoration: BoxDecoration(
                 color: LightTheme.PRIMARY_THEME,
+                gradient: LinearGradient(
+                  colors: [LightTheme.PRIMARY_THEME.withOpacity(0.7), LightTheme.PRIMARY_THEME.withOpacity(0.9)],
+                  begin: Alignment.bottomRight,
+                  end: Alignment.topLeft
+                ),
                 borderRadius: BorderRadius.only(
-                  bottomRight: Radius.circular(45),
-                  bottomLeft: Radius.circular(45)
+                  bottomRight: Radius.circular(0),
+                  bottomLeft: Radius.circular(0)
                 )
               ),
               child: Padding(
@@ -135,7 +145,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 minWidth: double.infinity,
                 maxWidth: double.infinity,
               ),
-              color: LightTheme.SECOND_THEME,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [LightTheme.SECOND_THEME,LightTheme.SECOND_THEME.withOpacity(0.5) ],
+                  end: Alignment.bottomRight,
+                  begin: Alignment.topLeft,
+                )
+              ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 30
@@ -154,14 +170,28 @@ class _HomeScreenState extends State<HomeScreen> {
                         padding: const EdgeInsets.symmetric(
                           vertical: 8
                         ),
-                        child: Text(
-                          "Other Lottery Ticket",
-                          style: TextStyle(
-                              color: LightTheme.FONT_COLOR,
-                              fontFamily: 'Poetsen_one',
-                              fontSize: SizeConfig.HOME_SCREEN_OTHERLOTTERYTICKET,
-                              fontStyle: FontStyle.italic
-                          ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text(
+                              "10 Lastest Lottery",
+                              style: TextStyle(
+                                  color: LightTheme.FONT_COLOR,
+                                  fontFamily: 'Poetsen_one',
+                                  fontSize: SizeConfig.HOME_SCREEN_OTHERLOTTERYTICKET - 1,
+                                  fontStyle: FontStyle.italic
+                              ),
+                            ),
+                            Text(
+                              "Scroll",
+                              style: TextStyle(
+                                  color: LightTheme.FONT_COLOR,
+                                  fontFamily: 'Poetsen_one',
+                                  fontSize: SizeConfig.HOME_SCREEN_OTHERLOTTERYTICKET - 7,
+                                  fontStyle: FontStyle.italic
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                       ConstrainedBox(

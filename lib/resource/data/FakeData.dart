@@ -7,7 +7,7 @@ class FakeData {
   FakeData(){
     listFakeData = new List<CardClass>();
     Random rnd = new Random();
-    for(int i = 0 ; i < 100 ; i ++ ){
+    for(int i = 0 ; i < 10 ; i ++ ){
       listFakeData.add(
         CardClass(
           first_number: rnd.nextInt(100),

@@ -17,6 +17,9 @@ class _WaitingScreenState extends State<WaitingScreen> {
   }
   @override
   Widget build(BuildContext context) {
+    final Shader linearGradient = LinearGradient(
+      colors: <Color>[ LightTheme.SECOND_THEME.withOpacity(0.75),LightTheme.FONT_COLOR_WHITE ],
+    ).createShader(Rect.fromLTWH(0.0, 0.0, 200.0, 70.0));
     SizeConfig SIZE = SizeConfig(context);
     LightTheme THEME = LightTheme();
     return Scaffold(
@@ -25,6 +28,11 @@ class _WaitingScreenState extends State<WaitingScreen> {
         width:  SizeConfig.WIDHT,
         decoration: BoxDecoration(
           color: LightTheme.PRIMARY_THEME,
+          gradient: LinearGradient(
+            colors: [LightTheme.PRIMARY_THEME.withOpacity(0.45),LightTheme.PRIMARY_THEME.withOpacity(1) ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight
+          )
         ),
         child: Center(
           child: Column(
@@ -47,7 +55,8 @@ class _WaitingScreenState extends State<WaitingScreen> {
                 child: Text(
                   "Vietlott",
                   style: TextStyle(
-                      color: LightTheme.FONT_COLOR_WHITE,
+                    foreground: Paint()..shader = linearGradient,
+                      //color: LightTheme.FONT_COLOR_WHITE,
                       fontFamily: 'Poetsen_one',
                       fontSize: SizeConfig.WAITING_SCREEN_MAINTITLE
                   ),
@@ -58,7 +67,8 @@ class _WaitingScreenState extends State<WaitingScreen> {
                 child: Text(
                   "Loading data...",
                   style: TextStyle(
-                      color: LightTheme.FONT_COLOR_WHITE,
+                      foreground: Paint()..shader = linearGradient,
+                      //color: LightTheme.FONT_COLOR_WHITE,
                       fontFamily: 'Poetsen_one',
                       fontSize: SizeConfig.WAITING_SCREEN_SUBTITLE,
                       fontStyle: FontStyle.italic

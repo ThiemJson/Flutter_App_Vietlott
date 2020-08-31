@@ -12,7 +12,6 @@ void main() async {
 
   await page.goto('https://vietlott.vn/vi/trung-thuong/ket-qua-trung-thuong/winning-number-645',
       wait: Until.networkIdle);
-
   // Type into search box.
   await page.type('.devsite-search-field', 'Headless Chrome');
 
