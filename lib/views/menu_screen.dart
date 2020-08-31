@@ -66,7 +66,7 @@ class _MenuScreenState extends State<MenuScreen> {
                         end: Alignment.topLeft
                       )
                     ),
-                    width: SizeConfig.WIDHT * 0.8,
+                    width: SizeConfig.WIDHT * 0.85,
                     //height: SizeConfig.HEIGHT * 0.15,
                     child: ListTile(
                       onTap: (){},
@@ -114,7 +114,7 @@ class _MenuScreenState extends State<MenuScreen> {
                             end: Alignment.topLeft
                         )
                     ),
-                    width: SizeConfig.WIDHT * 0.8,
+                    width: SizeConfig.WIDHT * 0.85,
                     //height: SizeConfig.HEIGHT * 0.15,
                     child: ListTile(
                       onTap: (){},
@@ -148,7 +148,7 @@ class _MenuScreenState extends State<MenuScreen> {
                             end: Alignment.topLeft
                         )
                     ),
-                    width: SizeConfig.WIDHT * 0.8,
+                    width: SizeConfig.WIDHT * 0.85,
                     //height: SizeConfig.HEIGHT * 0.15,
                     child: ListTile(
                       onTap: (){},
@@ -182,7 +182,7 @@ class _MenuScreenState extends State<MenuScreen> {
                             end: Alignment.topLeft
                         )
                     ),
-                    width: SizeConfig.WIDHT * 0.8,
+                    width: SizeConfig.WIDHT * 0.85,
                     //height: SizeConfig.HEIGHT * 0.15,
                     child: ListTile(
                       onTap: (){},
@@ -216,7 +216,7 @@ class _MenuScreenState extends State<MenuScreen> {
                             end: Alignment.topLeft
                         )
                     ),
-                    width: SizeConfig.WIDHT * 0.8,
+                    width: SizeConfig.WIDHT * 0.85,
                     //height: SizeConfig.HEIGHT * 0.15,
                     child: ListTile(
                       onTap: (){},
