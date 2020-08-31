@@ -4,6 +4,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_vietlott/controllers/crawl_data.dart';
 import 'package:flutter_vietlott/controllers/size_config.dart';
 import 'package:flutter_vietlott/controllers/theme_config.dart';
+import 'package:flutter_vietlott/views/bestOf100_oneball.dart';
+import 'package:flutter_vietlott/views/bestOf100_threeball.dart';
+import 'package:flutter_vietlott/views/bestOf100_twoball.dart';
 import 'package:flutter_vietlott/views/home_screen.dart';
 import 'package:flutter_vietlott/views/lottery_ticket_screen.dart';
 import 'package:flutter_vietlott/views/menu_screen.dart';
@@ -32,8 +35,7 @@ class MyApp extends StatelessWidget {
         "/home_screen": (context) => null,
         "/home_second_screen": (context) => null
       },*/
-
-      home: HomeScreen(),
+      home: BestOf100_TwoBall(),
     );
   }
 }
