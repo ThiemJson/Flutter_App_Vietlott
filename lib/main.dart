@@ -1,7 +1,5 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_vietlott/controllers/crawl_data.dart';
 import 'package:flutter_vietlott/controllers/size_config.dart';
 import 'package:flutter_vietlott/controllers/theme_config.dart';
 import 'package:flutter_vietlott/views/bestOf100_oneball.dart';
@@ -12,7 +10,7 @@ import 'package:flutter_vietlott/views/lottery_ticket_screen.dart';
 import 'package:flutter_vietlott/views/menu_screen.dart';
 import 'package:flutter_vietlott/views/pageview_lottery_screen.dart';
 import 'package:flutter_vietlott/views/waiting_screen.dart';
-import 'package:flutter_vietlott/controllers/crawl_data.dart' as crawler;
+
 
 
 void main() {
@@ -35,7 +33,7 @@ class MyApp extends StatelessWidget {
         "/home_screen": (context) => null,
         "/home_second_screen": (context) => null
       },*/
-      home: BestOf100_TwoBall(),
+      home: HomeScreen(),
     );
   }
 }

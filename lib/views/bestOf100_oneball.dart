@@ -50,6 +50,29 @@ class _BestOf100_OneBallState extends State<BestOf100_OneBall> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 18
+                  ),
+                  child: Card(
+                    elevation: 20,
+                    color: LightTheme.SECOND_THEME.withOpacity(0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    child: Container(
+                      width: SizeConfig.WAITING_SCREEN_LOGOSIZE,
+                      height: SizeConfig.WAITING_SCREEN_LOGOSIZE,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                              image: AssetImage('lib/resource/images/logoVietlott.png'),
+                              fit: BoxFit.fill
+                          )
+                      ),
+                    ),
+                  ),
+                ),
                 Text(
                   "Most appearances - 1 ball",
                   style: TextStyle(
