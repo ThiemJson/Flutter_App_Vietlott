@@ -5,14 +5,23 @@ import 'package:flutter_vietlott/controllers/size_config.dart';
 import 'package:flutter_vietlott/controllers/theme_config.dart';
 import 'package:flutter_vietlott/models/AnimatiionFloatingActionbutton.dart';
 import 'package:flutter_vietlott/models/Card.dart';
+import 'package:flutter_vietlott/resource/data/Data.dart';
 import 'package:flutter_vietlott/resource/data/FakeData.dart';
+import 'package:flutter_vietlott/views/bestOf100_threeball.dart';
+import 'package:flutter_vietlott/views/menu_screen.dart';
 
 class HomeScreen extends StatefulWidget {
+  final DATA data ;
+  HomeScreen({
+    @required this.data
+  });
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _HomeScreenState createState() => _HomeScreenState(data: data);
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final DATA data ;
+  _HomeScreenState({ @required this.data });
   FakeData fakeData = new FakeData();
   @override
   Widget build(BuildContext context) {
@@ -25,7 +34,13 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       floatingActionButton: FloatingActionButton.extended(
         backgroundColor: LightTheme.SECOND_THEME.withOpacity(1),
-        onPressed: (){},
+        onPressed: (){
+          Navigator.push(context,
+              MaterialPageRoute(
+                builder: (context) => MenuScreen(data: data,),
+              )
+          );
+        },
         elevation: 12,
         icon: Icon(Icons.art_track, color: LightTheme.FONT_COLOR, size:  SizeConfig.HOME_SCREEN_OTHERLOTTERYTICKET + 10, ),
         label: Text(
@@ -112,7 +127,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         Text(
-                          "Update: "+fakeData.listFakeData[0].date,
+                          "Update: "+data.listOfLastestLottery[0].ngay,
                           style: TextStyle(
                             color: LightTheme.FONT_COLOR_WHITE,
                             fontFamily: 'Poetsen_one',
@@ -123,14 +138,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                     CardWidget(
-                      first_number: fakeData.listFakeData[0].first_number,
-                      second_number: fakeData.listFakeData[0].second_number,
-                      third_number: fakeData.listFakeData[0].third_number,
-                      four_number: fakeData.listFakeData[0].four_number,
-                      five_number: fakeData.listFakeData[0].five_number,
-                      six_number: fakeData.listFakeData[0].six_number,
-                      date: fakeData.listFakeData[0].date,
-                      state: fakeData.listFakeData[0].state,
+                      first_number: data.listOfLastestLottery[0].boso.substring(0,2),
+                      second_number: data.listOfLastestLottery[0].boso.substring(2,4),
+                      third_number: data.listOfLastestLottery[0].boso.substring(4,6),
+                      four_number: data.listOfLastestLottery[0].boso.substring(6,8),
+                      five_number: data.listOfLastestLottery[0].boso.substring(8,10),
+                      six_number: data.listOfLastestLottery[0].boso.substring(10,12),
+                      date: data.listOfLastestLottery[0].ngay,
+                      state:data.listOfLastestLottery[0].kiquaythuong,
                     )
                   ],
                 ),
@@ -204,16 +219,16 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: ListView.builder(
                           controller: _scrollController,
                           //physics: ScrollPhysics(parent: FixedExtentScrollPhysics()),
-                          itemCount: fakeData.listFakeData.length,
+                          itemCount: data.listOfLastestLottery.length,
                           itemBuilder: (context, index)=> CardWidget_Sub(
-                            first_number: fakeData.listFakeData[index].first_number,
-                            second_number: fakeData.listFakeData[index].second_number,
-                            third_number: fakeData.listFakeData[index].third_number,
-                            four_number: fakeData.listFakeData[index].four_number,
-                            five_number: fakeData.listFakeData[index].five_number,
-                            six_number: fakeData.listFakeData[index].six_number,
-                            date: fakeData.listFakeData[index].date,
-                            state: fakeData.listFakeData[index].state,
+                            first_number: data.listOfLastestLottery[index].boso.substring(0,2),
+                            second_number: data.listOfLastestLottery[index].boso.substring(2,4),
+                            third_number: data.listOfLastestLottery[index].boso.substring(4,6),
+                            four_number: data.listOfLastestLottery[index].boso.substring(6,8),
+                            five_number: data.listOfLastestLottery[index].boso.substring(8,10),
+                            six_number: data.listOfLastestLottery[index].boso.substring(10,12),
+                            date: data.listOfLastestLottery[index].ngay,
+                            state:data.listOfLastestLottery[index].kiquaythuong,
                           ),
                         ),
                       )

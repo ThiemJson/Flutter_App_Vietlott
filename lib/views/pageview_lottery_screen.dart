@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vietlott/controllers/theme_config.dart';
+import 'package:flutter_vietlott/resource/data/Data.dart';
 import 'package:flutter_vietlott/views/lottery_ticket_screen.dart';
 class PageViewLottery extends StatefulWidget {
+  final DATA data;
+  PageViewLottery({
+    @required this.data
+  });
   @override
-  _PageViewLotteryState createState() => _PageViewLotteryState();
+  _PageViewLotteryState createState() => _PageViewLotteryState(data: data);
 }
 
 class _PageViewLotteryState extends State<PageViewLottery> {
+  final DATA data;
+  _PageViewLotteryState({
+    @required this.data
+  });
   @override
   Widget build(BuildContext context) {
     PageController _pageController = new PageController(
@@ -15,19 +24,18 @@ class _PageViewLotteryState extends State<PageViewLottery> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: LightTheme.SECOND_THEME,
-        leading: Icon(Icons.arrow_back_ios , color: LightTheme.FONT_COLOR,),
+        leading: InkWell(
+            onTap: (){
+              Navigator.pop(context);
+            },
+            child: Icon(Icons.arrow_back_ios , color: LightTheme.FONT_COLOR,)
+        ),
         elevation: 0,
       ),
-      body: PageView(
-        controller: _pageController,
-        children: <Widget>[
-          LotteryScreen(),
-          LotteryScreen(),
-          LotteryScreen(),
-          LotteryScreen(),
-          LotteryScreen(),
-        ],
-      ),
+      body: PageView.builder(
+        itemCount: data.listOfLastestLottery.length,
+        itemBuilder: (context, index)=>LotteryScreen(data: data.listOfLastestLottery[index],),
+      )
     );
   }
 }

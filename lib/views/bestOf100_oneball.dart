@@ -2,29 +2,34 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_vietlott/controllers/size_config.dart';
 import 'package:flutter_vietlott/controllers/theme_config.dart';
+import 'package:flutter_vietlott/resource/data/Data.dart';
 
 class BestOf100_OneBall extends StatefulWidget {
+  final DATA data;
+  BestOf100_OneBall({
+    @required this.data
+  });
   @override
-  _BestOf100_OneBallState createState() => _BestOf100_OneBallState();
+  _BestOf100_OneBallState createState() => _BestOf100_OneBallState(data: data);
 }
 
 class _BestOf100_OneBallState extends State<BestOf100_OneBall> {
+  final DATA data;
+  _BestOf100_OneBallState({
+    @required this.data
+  });
   @override
   Widget build(BuildContext context) {
     SizeConfig sizeConfig = new SizeConfig(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Back",
-          style: TextStyle(
-            color: LightTheme.FONT_COLOR,
-            fontFamily: 'Poetsen_one',
-            fontSize: SizeConfig.HOME_SCREEN_OTHERLOTTERYTICKET,
-            //fontStyle: FontStyle.italic
-          ),
-        ),
         backgroundColor: LightTheme.SECOND_THEME,
-        leading: Icon(Icons.arrow_back_ios , color: LightTheme.FONT_COLOR,),
+        leading: InkWell(
+            onTap: (){
+              Navigator.pop(context);
+            },
+            child: Icon(Icons.arrow_back_ios , color: LightTheme.FONT_COLOR,)
+        ),
         elevation: 0,
     ),
       body: ConstrainedBox(
@@ -114,11 +119,22 @@ class _BestOf100_OneBallState extends State<BestOf100_OneBall> {
                     ],
                   ),
                 ),
-                Cards(),
-                Cards(),
-                Cards(),
-                Cards(),
-                Cards(),
+                ConstrainedBox(
+                  constraints: BoxConstraints(
+                    minWidth: SizeConfig.WIDHT * 0.8,
+                    maxWidth: SizeConfig.WIDHT * 0.8,
+                    maxHeight: SizeConfig.HEIGHT * 0.1 * 5 + 5,
+                    minHeight: SizeConfig.HEIGHT * 0.1 * 5 + 5,
+                  ),
+                  child: Container(
+                    width: SizeConfig.WIDHT * 0.8,
+                    height: SizeConfig.HEIGHT * 0.1 * 5 + 5,
+                    child: ListView.builder(
+                      itemCount: data.listOfMostAppOneBall.length,
+                      itemBuilder: (context, index)=>Cards(so: data.listOfMostAppOneBall[index].boso,solan:data.listOfMostAppOneBall[index].solan ,),
+                    ),
+                  ),
+                )
               ],
             ),
           ),
@@ -129,7 +145,11 @@ class _BestOf100_OneBallState extends State<BestOf100_OneBall> {
 }
 
 class Cards extends StatelessWidget {
+  final String solan;
+  final String so;
   const Cards({
+    this.solan,
+    this.so,
     Key key,
   }) : super(key: key);
 
@@ -144,7 +164,7 @@ class Cards extends StatelessWidget {
       ),
       child: Card(
         color: LightTheme.FONT_COLOR_WHITE,
-        elevation: 15,
+        elevation: 5,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12)
         ),
@@ -165,7 +185,7 @@ class Cards extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Text(
-                  "12",
+                  solan,
                   style: TextStyle(
                       color: LightTheme.FONT_COLOR,
                       fontFamily: 'Poetsen_one',
@@ -190,7 +210,7 @@ class Cards extends StatelessWidget {
                       ),
                       child: Center(
                         child: Text(
-                          "25",
+                          so,
                           style: TextStyle(
                               color: LightTheme.FONT_COLOR_WHITE,
                               fontFamily: 'Poetsen_one',

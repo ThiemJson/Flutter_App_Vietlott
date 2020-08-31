@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_vietlott/controllers/size_config.dart';
 import 'package:flutter_vietlott/controllers/theme_config.dart';
+import 'package:flutter_vietlott/resource/data/Data.dart';
+
+import 'home_screen.dart';
 
 class WaitingScreen extends StatefulWidget {
   @override
@@ -13,7 +16,19 @@ class _WaitingScreenState extends State<WaitingScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-
+    print("bat dau");
+    DATA _data = DATA();
+    _data.getData().then((value) => {
+      print(_data.listOfLastestLottery[0].boso),
+      Future.delayed(const Duration(seconds: 4),()=>{
+        Navigator.push(context,
+            MaterialPageRoute(
+              builder: (context) => HomeScreen(data: _data,),
+            )
+        )
+      })
+    });
+    print("Ket thuc");
   }
   @override
   Widget build(BuildContext context) {

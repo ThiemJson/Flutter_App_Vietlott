@@ -4,16 +4,25 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_vietlott/controllers/crawlers/widgets/Result_lottery_ticker.dart';
 import 'package:flutter_vietlott/controllers/size_config.dart';
 import 'package:flutter_vietlott/controllers/theme_config.dart';
 import 'package:flutter_vietlott/models/class/CardClass.dart';
 
 class LotteryScreen extends StatefulWidget {
+  final Result_lottery_ticker data;
+  LotteryScreen({
+   @required this.data
+  });
   @override
-  _LotteryScreenState createState() => _LotteryScreenState();
+  _LotteryScreenState createState() => _LotteryScreenState(data: data);
 }
 
 class _LotteryScreenState extends State<LotteryScreen> {
+  final Result_lottery_ticker data;
+  _LotteryScreenState({
+    @required this.data
+  });
   @override
   Widget build(BuildContext context) {
     SizeConfig sizeConfig = new SizeConfig(context);
@@ -101,7 +110,7 @@ class _LotteryScreenState extends State<LotteryScreen> {
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Text(
-                                    "Date: 22-12-2016",
+                                    "Date: "+data.ngay,
                                     style: TextStyle(
                                         color: LightTheme.FONT_COLOR,
                                         fontFamily: 'Poetsen_one',
@@ -110,7 +119,7 @@ class _LotteryScreenState extends State<LotteryScreen> {
                                     ),
                                   ),
                                   Text(
-                                    "State: 0631",
+                                    "State: "+data.kiquaythuong,
                                     style: TextStyle(
                                         color: LightTheme.FONT_COLOR,
                                         fontFamily: 'Poetsen_one',
@@ -145,7 +154,7 @@ class _LotteryScreenState extends State<LotteryScreen> {
                                       ),
                                       child: Center(
                                         child: Text(
-                                          "185.124.124.124 VND",
+                                          data.tableTicket.giatri+" VND",
                                           style: TextStyle(
                                               color: Colors.yellow,
                                               fontFamily: 'Poetsen_one',
@@ -177,18 +186,18 @@ class _LotteryScreenState extends State<LotteryScreen> {
                                       mainAxisAlignment: MainAxisAlignment.center,
                                       crossAxisAlignment: CrossAxisAlignment.center,
                                       children: <Widget>[
-                                        Lott_CardNumber(),
-                                        Lott_CardNumber(),
-                                        Lott_CardNumber(),
+                                        Lott_CardNumber(so: data.boso.substring(0,2),),
+                                        Lott_CardNumber(so: data.boso.substring(2,4),),
+                                        Lott_CardNumber(so: data.boso.substring(4,6),),
                                       ],
                                     ),
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.center,
                                       crossAxisAlignment: CrossAxisAlignment.center,
                                       children: <Widget>[
-                                        Lott_CardNumber(),
-                                        Lott_CardNumber(),
-                                        Lott_CardNumber(),
+                                        Lott_CardNumber(so: data.boso.substring(6,8),),
+                                        Lott_CardNumber(so: data.boso.substring(8,10),),
+                                        Lott_CardNumber(so: data.boso.substring(10,12),),
                                       ],
                                     ),
                                   ],
@@ -211,7 +220,9 @@ class _LotteryScreenState extends State<LotteryScreen> {
 }
 
 class Lott_CardNumber extends StatelessWidget {
+  final String so;
   const Lott_CardNumber({
+    @required this.so,
     Key key,
   }) : super(key: key);
 
@@ -239,7 +250,7 @@ class Lott_CardNumber extends StatelessWidget {
           ),
           child: Center(
             child: Text(
-              "18",
+              so,
               style: TextStyle(
                   color: LightTheme.PRIMARY_THEME,
                   fontFamily: 'Poetsen_one',

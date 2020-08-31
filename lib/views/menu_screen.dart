@@ -2,19 +2,36 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_vietlott/controllers/size_config.dart';
 import 'package:flutter_vietlott/controllers/theme_config.dart';
+import 'package:flutter_vietlott/resource/data/Data.dart';
+import 'package:flutter_vietlott/views/bestOf100_oneball.dart';
+import 'package:flutter_vietlott/views/bestOf100_threeball.dart';
+import 'package:flutter_vietlott/views/bestOf100_twoball.dart';
+import 'package:flutter_vietlott/views/pageview_lottery_screen.dart';
 class MenuScreen extends StatefulWidget {
+  DATA data;
+  MenuScreen({
+    @required this.data
+  });
   @override
-  _MenuScreenState createState() => _MenuScreenState();
+  _MenuScreenState createState() => _MenuScreenState(data: data);
 }
 
 class _MenuScreenState extends State<MenuScreen> {
+  DATA data;
+  _MenuScreenState({
+    @required this.data
+  });
   @override
   Widget build(BuildContext context) {
     SizeConfig _sizeConfig = new SizeConfig(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: LightTheme.SECOND_THEME,
-        leading: Icon(Icons.arrow_back_ios , color: LightTheme.FONT_COLOR,),
+        leading: InkWell(
+          onTap: (){
+            Navigator.pop(context);
+          },
+            child: Icon(Icons.arrow_back_ios , color: LightTheme.FONT_COLOR,)),
         elevation: 0,
       ),
       body: ConstrainedBox(
@@ -69,7 +86,9 @@ class _MenuScreenState extends State<MenuScreen> {
                     width: SizeConfig.WIDHT * 0.85,
                     //height: SizeConfig.HEIGHT * 0.15,
                     child: ListTile(
-                      onTap: (){},
+                      onTap: (){
+                        Navigator.pop(context);
+                      },
                       leading: Icon(Icons.home, color: LightTheme.FONT_COLOR,size:SizeConfig.HOME_SCREEN_OTHERLOTTERYTICKET + 10 ,),
                       title: Text(
                         "Home",
@@ -117,7 +136,13 @@ class _MenuScreenState extends State<MenuScreen> {
                     width: SizeConfig.WIDHT * 0.85,
                     //height: SizeConfig.HEIGHT * 0.15,
                     child: ListTile(
-                      onTap: (){},
+                      onTap: (){
+                        Navigator.push(context,
+                            MaterialPageRoute(
+                              builder: (context) => PageViewLottery(data: data,),
+                            )
+                        );
+                      },
                       leading: Icon(Icons.inbox, color: LightTheme.FONT_COLOR,size:SizeConfig.HOME_SCREEN_OTHERLOTTERYTICKET + 10 ,),
                       title: Text(
                         "10 Lastest Lottery",
@@ -151,7 +176,13 @@ class _MenuScreenState extends State<MenuScreen> {
                     width: SizeConfig.WIDHT * 0.85,
                     //height: SizeConfig.HEIGHT * 0.15,
                     child: ListTile(
-                      onTap: (){},
+                      onTap: (){
+                        Navigator.push(context,
+                            MaterialPageRoute(
+                              builder: (context) => BestOf100_OneBall(data: data,),
+                            )
+                        );
+                      },
                       leading: Icon(Icons.filter_1, color: LightTheme.FONT_COLOR,size:SizeConfig.HOME_SCREEN_OTHERLOTTERYTICKET + 10 ,),
                       title: Text(
                         "Most appearances ( 1 ball )",
@@ -185,7 +216,13 @@ class _MenuScreenState extends State<MenuScreen> {
                     width: SizeConfig.WIDHT * 0.85,
                     //height: SizeConfig.HEIGHT * 0.15,
                     child: ListTile(
-                      onTap: (){},
+                      onTap: (){
+                        Navigator.push(context,
+                            MaterialPageRoute(
+                              builder: (context) => BestOf100_TwoBall(data: data,),
+                            )
+                        );
+                      },
                       leading: Icon(Icons.filter_2, color: LightTheme.FONT_COLOR,size:SizeConfig.HOME_SCREEN_OTHERLOTTERYTICKET + 10 ,),
                       title: Text(
                         "Most appearances ( 2 balls)",
@@ -219,7 +256,14 @@ class _MenuScreenState extends State<MenuScreen> {
                     width: SizeConfig.WIDHT * 0.85,
                     //height: SizeConfig.HEIGHT * 0.15,
                     child: ListTile(
-                      onTap: (){},
+                      onTap: (){
+                        print("tapped");
+                        Navigator.push(context,
+                            MaterialPageRoute(
+                              builder: (context) => BestOf100_ThreeBall(data: data,),
+                            )
+                        );
+                      },
                       leading: Icon(Icons.filter_3, color: LightTheme.FONT_COLOR,size:SizeConfig.HOME_SCREEN_OTHERLOTTERYTICKET + 10 ,),
                       title: Text(
                         "Most appearances ( 3 balls)",

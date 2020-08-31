@@ -3,14 +3,14 @@ import 'package:flutter_vietlott/controllers/size_config.dart';
 import 'package:flutter_vietlott/controllers/theme_config.dart';
 
 class CardWidget extends StatelessWidget {
-  final int first_number;
-  final int second_number;
-  final int third_number;
-  final int four_number;
-  final int five_number;
-  final int six_number;
+  final String first_number;
+  final String second_number;
+  final String third_number;
+  final String four_number;
+  final String five_number;
+  final String six_number;
 
-  final int state;
+  final String state;
   final String date;
   const CardWidget({
     Key key,
@@ -210,14 +210,14 @@ class CardWidget extends StatelessWidget {
 
 
 class CardWidget_Sub extends StatelessWidget {
-  final int first_number;
-  final int second_number;
-  final int third_number;
-  final int four_number;
-  final int five_number;
-  final int six_number;
+  final String first_number;
+  final String second_number;
+  final String third_number;
+  final String four_number;
+  final String five_number;
+  final String six_number;
 
-  final int state;
+  final String state;
   final String date;
   const CardWidget_Sub({
     Key key,

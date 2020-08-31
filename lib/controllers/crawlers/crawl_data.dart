@@ -15,10 +15,9 @@ import 'package:html/dom.dart' as Dom;
 class CrawlData{
   Dom.Document document;
   CrawlData(){
-    this.getDom().then((value) => {
+/*    this.getDom().then((value) => {
       this.document = value,
-      this.get_lottery_ticket()
-      });
+      });*/
   }
   Future<Dom.Document> getDom() async {
     List<Dom.Element> listOfElement = new List<Dom.Element>();
