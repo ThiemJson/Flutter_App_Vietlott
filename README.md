@@ -7,7 +7,7 @@ Tất nhiên là nó được viết bằng Dart vì nó là Flutter
 - Trong này thì đơn giản là crawl dữ liệu từ một trang web trên mạng thôi, không có gì to tát cả, và show dữ liệu đó ra màn hình
 Bạn có thể tìm thấy nó trên cửa hàng Play Store :
 
-- [Cửa hàng Play Store của tôi ](- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab))
+- [Cửa hàng Play Store của tôi ](https://play.google.com/store/apps/dev?id=7615257913038978290)
 
 For help getting started with Flutter, view our
 ## Đây là một vài hình ảnh DEMO của ứng dung, bạn có thể tải về theo link trên và trải nghiêm nhé ( tất nhiên là miễn phí và không có quảng cáo):
