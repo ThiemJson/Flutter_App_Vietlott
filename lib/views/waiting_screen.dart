@@ -16,11 +16,10 @@ class _WaitingScreenState extends State<WaitingScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    print("bat dau");
     DATA _data = DATA();
     _data.getData().then((value) => {
       print(_data.listOfLastestLottery[0].boso),
-      Future.delayed(const Duration(seconds: 4),()=>{
+      Future.delayed(const Duration(seconds: 3),()=>{
         Navigator.push(context,
             MaterialPageRoute(
               builder: (context) => HomeScreen(data: _data,),
@@ -28,7 +27,6 @@ class _WaitingScreenState extends State<WaitingScreen> {
         )
       })
     });
-    print("Ket thuc");
   }
   @override
   Widget build(BuildContext context) {
@@ -68,12 +66,12 @@ class _WaitingScreenState extends State<WaitingScreen> {
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Text(
-                  "Vietlott",
+                  "VN Lottery",
                   style: TextStyle(
                     foreground: Paint()..shader = linearGradient,
                       //color: LightTheme.FONT_COLOR_WHITE,
                       fontFamily: 'Poetsen_one',
-                      fontSize: SizeConfig.WAITING_SCREEN_MAINTITLE
+                      fontSize: SizeConfig.WAITING_SCREEN_MAINTITLE - 7
                   ),
                 ),
               ),

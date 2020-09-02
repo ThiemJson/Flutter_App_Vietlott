@@ -94,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          "Vietlott",
+                          "VN Lottery",
                           style: TextStyle(
                               color: LightTheme.FONT_COLOR_WHITE,
                               fontFamily: 'Poetsen_one',
@@ -198,7 +198,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             Text(
-                              "Scroll",
+                              "Scroll to view",
                               style: TextStyle(
                                   color: LightTheme.FONT_COLOR,
                                   fontFamily: 'Poetsen_one',

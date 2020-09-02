@@ -79,7 +79,7 @@ class _BestOf100_TwoBallState extends State<BestOf100_TwoBall> {
                   ),
                 ),
                 Text(
-                  "Most appearances - 2 balls",
+                  "Most appearances",
                   style: TextStyle(
                     color: LightTheme.FONT_COLOR,
                     fontFamily: 'Poetsen_one',
@@ -191,7 +191,7 @@ class Cards extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Text(
-                  solan,
+                  "Total: "+ solan,
                   style: TextStyle(
                       color: LightTheme.FONT_COLOR,
                       fontFamily: 'Poetsen_one',
@@ -226,6 +226,7 @@ class Cards extends StatelessWidget {
                         ),
                       ),
                     ),
+                    SizedBox(width: 10,),
                     Container(
                       width: SizeConfig.HOME_SCREEN_MAIN_SUBBALL_SIZE + 10,
                       height: SizeConfig.HOME_SCREEN_MAIN_SUBBALL_SIZE + 10,

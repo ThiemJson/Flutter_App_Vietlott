@@ -49,7 +49,7 @@ class _LotteryScreenState extends State<LotteryScreen> {
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 100, sigmaY: 100),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Padding(
@@ -89,121 +89,129 @@ class _LotteryScreenState extends State<LotteryScreen> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
                       ),
-                      child: Container(
-                        height: SizeConfig.HEIGHT * 0.6 ,
-                        width:  SizeConfig.WIDHT * 0.85,
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [LightTheme.SECOND_THEME.withOpacity(0), LightTheme.SECOND_THEME.withOpacity(0.8)],
-                            begin: Alignment.bottomRight,
-                            end: Alignment.topLeft
-                          ),
-                          borderRadius: BorderRadius.circular(30),
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(
+                          minHeight: SizeConfig.HEIGHT * 0.6,
+                          maxHeight: SizeConfig.HEIGHT * 0.6,
+                          maxWidth: SizeConfig.WIDHT * 0.85,
+                          minWidth: SizeConfig.WIDHT * 0.85,
                         ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(19.0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: <Widget>[
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: <Widget>[
-                                  Text(
-                                    "Date: "+data.ngay,
-                                    style: TextStyle(
-                                        color: LightTheme.FONT_COLOR,
-                                        fontFamily: 'Poetsen_one',
-                                        fontSize: SizeConfig.HOME_SCREEN_OTHERLOTTERYTICKET,
-                                        //fontStyle: FontStyle.italic
-                                    ),
-                                  ),
-                                  Text(
-                                    "State: "+data.kiquaythuong,
-                                    style: TextStyle(
-                                        color: LightTheme.FONT_COLOR,
-                                        fontFamily: 'Poetsen_one',
-                                        fontSize: SizeConfig.HOME_SCREEN_OTHERLOTTERYTICKET - 3,
-                                        //fontStyle: FontStyle.italic
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(16.0),
-                                child: ConstrainedBox(
-                                  constraints: BoxConstraints(
-                                    maxWidth: SizeConfig.WIDHT * 0.58,
-                                    minWidth: SizeConfig.WIDHT * 0.58,
-                                    maxHeight: SizeConfig.HEIGHT * 0.1,
-                                    minHeight: SizeConfig.HEIGHT * 0.1,
-                                  ),
-                                  child: Card(
-                                    //shadowColor: Colors.redAccent,
-                                    elevation: 15,
-                                    color: Colors.black87,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                    child: Container(
-                                      width: SizeConfig.WIDHT * 0.58,
-                                      height: SizeConfig.HEIGHT * 0.1,
-                                      decoration: BoxDecoration(
-                                        color: Colors.black87,
-                                        borderRadius: BorderRadius.circular(12)
+                        child: Container(
+                          height: SizeConfig.HEIGHT * 0.6 ,
+                          width:  SizeConfig.WIDHT * 0.85,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [LightTheme.SECOND_THEME.withOpacity(0), LightTheme.SECOND_THEME.withOpacity(0.8)],
+                              begin: Alignment.bottomRight,
+                              end: Alignment.topLeft
+                            ),
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(19.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Text(
+                                      "Date: "+data.ngay,
+                                      style: TextStyle(
+                                          color: LightTheme.FONT_COLOR,
+                                          fontFamily: 'Poetsen_one',
+                                          fontSize: SizeConfig.HOME_SCREEN_OTHERLOTTERYTICKET - 2,
+                                          //fontStyle: FontStyle.italic
                                       ),
-                                      child: Center(
-                                        child: Text(
-                                          data.tableTicket.giatri+" VND",
-                                          style: TextStyle(
-                                              color: Colors.yellow,
-                                              fontFamily: 'Poetsen_one',
-                                              fontSize: SizeConfig.HOME_SCREEN_OTHERLOTTERYTICKET + 3,
-                                              fontWeight: FontWeight.bold
+                                    ),
+                                    Text(
+                                      "State: "+data.kiquaythuong,
+                                      style: TextStyle(
+                                          color: LightTheme.FONT_COLOR,
+                                          fontFamily: 'Poetsen_one',
+                                          fontSize: SizeConfig.HOME_SCREEN_OTHERLOTTERYTICKET - 4,
+                                          //fontStyle: FontStyle.italic
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(16.0),
+                                  child: ConstrainedBox(
+                                    constraints: BoxConstraints(
+                                      maxWidth: SizeConfig.WIDHT * 0.58,
+                                      minWidth: SizeConfig.WIDHT * 0.58,
+                                      maxHeight: SizeConfig.HEIGHT * 0.1,
+                                      minHeight: SizeConfig.HEIGHT * 0.1,
+                                    ),
+                                    child: Card(
+                                      //shadowColor: Colors.redAccent,
+                                      elevation: 15,
+                                      color: Colors.black87,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(12),
+                                      ),
+                                      child: Container(
+                                        width: SizeConfig.WIDHT * 0.58,
+                                        height: SizeConfig.HEIGHT * 0.1,
+                                        decoration: BoxDecoration(
+                                          color: Colors.black87,
+                                          borderRadius: BorderRadius.circular(12)
+                                        ),
+                                        child: Center(
+                                          child: Text(
+                                            data.tableTicket.giatri+" VND",
+                                            style: TextStyle(
+                                                color: Colors.yellow,
+                                                fontFamily: 'Poetsen_one',
+                                                fontSize: SizeConfig.HOME_SCREEN_OTHERLOTTERYTICKET ,
+                                                fontWeight: FontWeight.bold
+                                            ),
                                           ),
                                         ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
-                              Text(
-                                "WINNING NUMBERS !",
-                                style: TextStyle(
-                                    color: LightTheme.FONT_COLOR,
-                                    fontFamily: 'Poetsen_one',
-                                    fontSize: SizeConfig.HOME_SCREEN_OTHERLOTTERYTICKET ,
-                                    fontWeight: FontWeight.bold
+                                Text(
+                                  "WINNING NUMBERS !",
+                                  style: TextStyle(
+                                      color: LightTheme.FONT_COLOR,
+                                      fontFamily: 'Poetsen_one',
+                                      fontSize: SizeConfig.HOME_SCREEN_OTHERLOTTERYTICKET ,
+                                      fontWeight: FontWeight.bold
+                                  ),
                                 ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(16.0),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: <Widget>[
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      children: <Widget>[
-                                        Lott_CardNumber(so: data.boso.substring(0,2),),
-                                        Lott_CardNumber(so: data.boso.substring(2,4),),
-                                        Lott_CardNumber(so: data.boso.substring(4,6),),
-                                      ],
-                                    ),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      children: <Widget>[
-                                        Lott_CardNumber(so: data.boso.substring(6,8),),
-                                        Lott_CardNumber(so: data.boso.substring(8,10),),
-                                        Lott_CardNumber(so: data.boso.substring(10,12),),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
+                                Padding(
+                                  padding: const EdgeInsets.all(16.0),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: <Widget>[
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        children: <Widget>[
+                                          Lott_CardNumber(so: data.boso.substring(0,2),),
+                                          Lott_CardNumber(so: data.boso.substring(2,4),),
+                                          Lott_CardNumber(so: data.boso.substring(4,6),),
+                                        ],
+                                      ),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        children: <Widget>[
+                                          Lott_CardNumber(so: data.boso.substring(6,8),),
+                                          Lott_CardNumber(so: data.boso.substring(8,10),),
+                                          Lott_CardNumber(so: data.boso.substring(10,12),),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),

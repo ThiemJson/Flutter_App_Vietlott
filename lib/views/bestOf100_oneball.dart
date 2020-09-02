@@ -79,7 +79,7 @@ class _BestOf100_OneBallState extends State<BestOf100_OneBall> {
                   ),
                 ),
                 Text(
-                  "Most appearances - 1 ball",
+                  "Most appearances",
                   style: TextStyle(
                     color: LightTheme.FONT_COLOR,
                     fontFamily: 'Poetsen_one',
@@ -185,7 +185,7 @@ class Cards extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Text(
-                  solan,
+                  "Total: "+ solan,
                   style: TextStyle(
                       color: LightTheme.FONT_COLOR,
                       fontFamily: 'Poetsen_one',

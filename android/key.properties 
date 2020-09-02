@@ -1,0 +1,4 @@
+storePassword=thiemtinhte
+keyPassword=thiemtinhte
+keyAlias=key
+storeFile=/home/thiemjson/nutella.jks
